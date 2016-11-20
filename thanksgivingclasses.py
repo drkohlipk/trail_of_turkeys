@@ -50,19 +50,3 @@ isabelle = Character('Isabelle', 'Cats', 1, 2, 3)
 emily = Character('Emily', 'Nun', 3, 1, 2)
 sarah = Character('Sarah', 'Nurse', 2, 3, 1)
 madjack = Character('MadJack', 'Coding Wizard', 4, 4, 4)
-
-card_deck = {
-    'two' : 2,
-    'three' : 3,
-    'four' : 4,
-    'five' : 5,
-    'six' : 6,
-    'seven' : 7,
-    'eight' : 8,
-    'nine' : 9,
-    'ten' : 10,
-    'jack' : 10,
-    'queen' : 10,
-    'king' : 10,
-    'ace' : 11, #Needs logic for dual value 11 and 1
-}
