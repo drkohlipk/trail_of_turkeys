@@ -13,9 +13,17 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 
+from apps.logreg.models import User as U
+
+class UAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(U, UAdmin)
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/',admin.site.urls),
+    url(r'^', include('apps.logreg.urls', namespace = 'logreg')),
+	url(r'^turkeytrail/', include('apps.turkeytrail.urls', namespace = 'turkeytrail')),
 ]
