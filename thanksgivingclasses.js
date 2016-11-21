@@ -92,8 +92,9 @@ function CardDeck() {
 				num = 6;
 				num -= Math.floor(Math.random() * 7);
 			}
+		} else {
+			num = Math.floor(Math.random() * 13);
 		}
-		num = Math.floor(Math.random() * 13);
 		return num;
 	};
 
@@ -106,9 +107,9 @@ function CardDeck() {
         return card;
 	};
 
-	this.hit = function() {
+	this.hit = function(luck) {
 		var card = {},
-			num = this.rando();
+			num = this.rando(luck);
 		if (this.cards[num].quantity === 0) {
 			this.hit();
 		} else {
