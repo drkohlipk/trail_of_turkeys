@@ -9,17 +9,26 @@
   <link rel="stylesheet" href="{% static 'turkey_blackjack/css/styles.css' %}" media="screen">
 </head>
 <body>
-  <main class="ninety">
+  <main class="sixty">
     <div id="dealerHand"></div>
     <div id="yourHand" class="center"></div>
-    <div id="yourScore">Your Score: <span class="digits">0</span> Record: <span id="wins">0</span>&nbsp;/&nbsp;<span id="losses">0</span> Your Money: <span id="money">0</span></div>
-    <form class="" action="index.html" method="post">
+    <!-- <div id="yourScore">Your Score: <span class="digits">0</span> Record: <span id="wins">0</span>&nbsp;/&nbsp;<span id="losses">0</span></div> -->
+    Your Money: <span id="money"></span>
+    Your Hand: <span id="player_hand"></span>
+    Dealer's Hand: <span id="dealer_hand"></span>
+    <p id="message"></p>
+    <form id="send_value" class="center thirty" action="{% url 'turkey_blackjack:deal' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" id="mon" name="money" value="{{ request.session.user.money }}">
       <label for="bet">Your Bet:</label>
-      <input type="number" name="bet" min="1" max="100" value="20">
-      <button id="deal">Deal</button>
-      <button id="hitMe">Hit</button>
-      <button id="stand">Stand</button>
+      <input type="number" name="bet" min="1" max="{{ request.session.user.money }}" value="5">
     </form>
+    <div class="center ninety">
+      <button class="btn btn-pop" id="deal">Deal</button>
+      <button class="btn btn-imp" id="hit">Hit</button>
+      <button class="btn btn-dflt" id="stay">Stay</button>
+    </div>
   </main>
+  <script src="{% static 'turkey_blackjack/js/turkey_blackjack.js' %}" type="text/javascript"></script>
 </body>
 </html>

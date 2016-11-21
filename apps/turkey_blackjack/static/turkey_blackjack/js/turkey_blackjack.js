@@ -1,7 +1,16 @@
 // var luck = document.getElementById('luck').innerHTML(),
 // 	money = document.getElementById('money').innerHTML();
 var luck = 3,
-	money = 20;
+	money = 20,
+	dealbtn = document.getElementById('deal'),
+	hitbtn = document.getElementById('hit'),
+	staybtn = document.getElementById('stay'),
+	monies = document.getElementById('money'),
+	messbox = document.getElementById('message'),
+	your_hand = document.getElementById('player_hand'),
+	dealer_hand = document.getElementById('dealer_hand'),
+	mon = doument.getElementById('mon'),
+	send_value = document.getElementById('send_value');
 
 /*****************start constructor functions*********************/
 
@@ -190,6 +199,8 @@ function startgame() {
 }
 
 function deal() {
+	var playHand = [],
+			dealHand = [];
     for (var i = 0; i < 4; i++) {
         if (i % 2 === 0) {
 			player.hand.push(deck.deal(player.luck));
@@ -202,20 +213,34 @@ function deal() {
 	if (dealer.blackjack || player.blackjack) {
 		console.log(end());
 	}
-    return;
+	for (var j = 0; j < 2; j++){
+		playHand.push(player.hand[j].face);
+		dealHand.push(dealer.hand[j].face);
+	}
+		your_hand.innerHTML = playHand;
+		dealer_hand.innerHTML = dealHand;
+		return;
 }
+dealbtn.onclick = function(){deal();};
 
 function hit() {
+	var playHand = [];
 	player.hit();
 	player.check();
 	if (player.bust) {
 		console.log(end());
 	}
+	for (var j = 0; j < player.hand.length; j++){
+		playHand.push(player.hand[j].face);
+	}
+	your_hand.innerHTML = playHand;
 	return;
 }
+hitbtn.onclick = function(){hit();};
 
 function stay() {
 	var soft = false;
+	var dealHand = [];
 	if (dealer.sum == 17) {
 		soft = dealer.softCheck();
 	}
@@ -224,9 +249,14 @@ function stay() {
 		dealer.check();
 		stay();
 	} else {
+		for (var j = 0; j < dealer.hand.length; j++){
+			dealHand.push(dealer.hand[j].face);
+		}
+		dealer_hand.innerHTML = dealHand;
 		console.log(end());
 	}
 }
+staybtn.onclick = function(){stay();};
 
 function end() {
 	var message;
@@ -251,6 +281,9 @@ function end() {
 	} else if (player.sum == dealer.sum) {
 		message = "Push, deal again.";
 	}
+	mon.value = player.money;
+	monies.innerHTML = player.money;
+	messbox.innerHTML = message;
 	return message;
 }
 
@@ -258,9 +291,9 @@ function end() {
 
 /***************tests***************/
 startgame();
-deal();
-console.log(dealer);
-console.log(player);
-stay();
-console.log(dealer);
-console.log(player);
+// deal();
+// console.log(dealer);
+// console.log(player);
+// stay();
+// console.log(dealer);
+// console.log(player);

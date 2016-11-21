@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/',admin.site.urls),
     url(r'^', include('apps.logreg.urls', namespace = 'logreg')),
 	url(r'^turkeytrail/', include('apps.turkeytrail.urls', namespace = 'turkeytrail')),
+    url(r'^turkey_blackjack/', include('apps.turkey_blackjack.urls', namespace = 'turkey_blackjack')),
 ]
