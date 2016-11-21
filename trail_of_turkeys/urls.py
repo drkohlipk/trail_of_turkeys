@@ -16,12 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
-from apps.logreg.models import User as U
-
-class UAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(U, UAdmin)
-
 urlpatterns = [
     url(r'^admin/',admin.site.urls),
     url(r'^', include('apps.logreg.urls', namespace = 'logreg')),

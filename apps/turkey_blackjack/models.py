@@ -2,7 +2,7 @@ from django.db import models
 import random
 
 # Create your models here.
-class Card_Deck(object):
+function Card_Deck(object):
 	def __init__(self):
 		self.cards = [
             {
@@ -79,19 +79,3 @@ class Card_Deck(object):
             cards.append{"face":self.cards[rando].name, "value": self.cards[rando].value}
             self.cards[rando].quantity -= 1
         return cards
-
-
-class Dealer(object):
-    def __init__(self):
-        self.hand = []
-
-class Player(object):
-    def __init__(self, money, luck):
-        self.money = money
-        self.luck = luck
-        self.hand = []
-
-class Hand(object):
-    def __init__(self, card1, card2):
-        self.card1 = card1
-        self.card2 = card2
