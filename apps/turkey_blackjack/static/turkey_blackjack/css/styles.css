@@ -128,7 +128,7 @@ input {
     border-radius:3px;
     -moz-border-radius:3px;
     -webkit-border-radius:3px;
-    background: url('Table.png') no-repeat 0 0;
+    background: url('../images/Table.png') no-repeat 0 0;
   	width: 691px;
   	height: 600px;
     color:#69D1A7;
