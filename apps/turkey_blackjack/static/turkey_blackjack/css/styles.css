@@ -5,13 +5,14 @@
 	font-family: sans-serif;
 }
 body{
-	/*background-image: url('../images/Cornucopia.jpg');*/
+	background-image: url('../images/Leaves.jpg');
+	background-size: cover;
 }
 
 main {
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px gray;
-	margin: 50px auto;
+	margin: 50px auto 0;
 	background: url('../images/Table.png') no-repeat 0 0;
 	background-size: cover;
 	height: 600px;
@@ -20,12 +21,14 @@ main {
 
 form {
 	margin: 10px auto;
-	padding: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
 }
 
 label, input {
 	display: inline-block;
-	vertical-align: bottom;;
+	vertical-align: middle;
 	margin: 5px 0;
 }
 
@@ -74,8 +77,8 @@ input {
 }
 
 .btn {
-	display: block;
-	margin: 10px 0;
+	display: inline-block;
+	margin: 20px 5px 0 5px;
 	width: 5.5em;
 	height: 1.5em;
 	font-size: .9em;
@@ -90,11 +93,13 @@ input {
 	padding: 3px;
 	text-align: center;
 }
-
+.hidden{
+	display: none;
+}
 .btn-imp {
 	background: linear-gradient(white, red 20%);
-	color: white;
-	padding: 5px;
+	color: yellow;
+	padding: 3px;
 	text-align: center;
 }
 
@@ -122,28 +127,39 @@ input {
 .left {
 	float: left;
 }
+
 .center {
-	margin: 0 auto;
+	margin: 20px auto;
 }
 
 .notif {
 	padding: 5px;
 }
+footer{
+	width:100%;
+	text-align: center;
+}
+
+#moves{
+	position: relative;
+	text-align: center;
+	vertical-align:middle;
+	top: 78%;
+}
 #yourHand {
-    overflow:hidden;
-    position:relative;
-    border:1px solid #056B42;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    color:#69D1A7;
-    padding:.5em;
-    font-size:1.1em;
+
 }
 #yourScore {
 	text-align: center;
 }
+.theme{
+	font-family: "Courier New", Courier, monospace;
+	color: yellow;
+	text-shadow: 1px 1px #f00000;
+}
 .card {
 	width: 125px;
 	height: 184px;
+	display: inline-block;
+	margin-left: 15px;
 }
