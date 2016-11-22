@@ -331,7 +331,6 @@ hitbtn.onclick = function(){hit();};
 
 function stay() {
 	var soft = false;
-	var dealHand = '';
 	if (dealer.sum == 17) {
 		soft = dealer.softCheck();
 	}
@@ -340,10 +339,6 @@ function stay() {
 		dealer.check();
 		stay();
 	} else {
-		for (var j = 0; j < dealer.hand.length; j++){
-			dealHand += '<div style="background:'+dealer.hand[j].url+'" class="card"></div>';
-		}
-		dealer_hand.innerHTML = dealHand;
 		end();
 	}
 }
@@ -351,6 +346,11 @@ staybtn.onclick = function(){stay();};
 
 function end() {
 	var message;
+	var dealHand = '';
+	for (var j = 0; j < dealer.hand.length; j++){
+		dealHand += '<div style="background:'+dealer.hand[j].url+'" class="card"></div>';
+	}
+	dealer_hand.innerHTML = dealHand;
 	if (player.bust) {
 		message = "Player loses, dealer wins.";
 		player.money -= player.bet;
