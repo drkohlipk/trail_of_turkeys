@@ -58,7 +58,32 @@ class CharDBManager(models.Manager):
 		}
 		character = chardict.name
 
+	def populateDB(self, character):
+		self.create(name=character.name),
+		(luck=character.luck),
+		(money=character.money),
+		(beer_stamina=character.beer_stamina),
+		(damage=character.damage),
+		(special=character.special),
+		(sobriety=character.sobriety),
+		(health=character.health),
+		(tryptophan=character.tryptophan),
+		(family=character.family)
+
+
 class CharDB(models.Model):
 	name = models.CharField(max_length = 10)
-	
+	person = models.ForeignKey(User, on_delete=models.CASCADE)
+	created_at = models.DateTimeField(auto_now_add = True)
+	updated_at = models.DateTimeField(auto_now = True)
+	luck = models.integerField()
+	money = models.integerField()
+	beer_stamina = models.integerField()
+	damage = models.integerField()
+	special= models.CharField(max_length = 15)
+	sobriety = models.integerField()
+	health = models.integerField()
+	tryptophan = models.integerField()
+	family =
+
 	objects = CharDBManager()
