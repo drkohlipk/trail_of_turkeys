@@ -17,69 +17,160 @@ var luck = 3,
 function CardDeck() {
 	this.cards = [
 		{
-			'name' : 'two',
+			'name' : 'blacktwo',
 			'value' : 2,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 1.393% 3.241%"
 		},
 		{
-			'name' : 'three',
+			'name' : 'redtwo',
+			'value' : 2,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 1.393% 91.628%"
+		},
+		{
+			'name' : 'blackthree',
 			'value' : 3,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 9.563% 3.241%"
 		},
 		{
-			'name' : 'four',
+			'name' : 'redthree',
+			'value' : 3,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 9.563% 91.628%"
+		},
+		{
+			'name' : 'blackfour',
 			'value' : 4,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 17.744% 3.241%"
 		},
 		{
-			'name' : 'five',
+			'name' : 'redfour',
+			'value' : 4,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 17.744% 91.628%"
+		},
+		{
+			'name' : 'blackfive',
 			'value' : 5,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 25.966% 3.241%"
 		},
 		{
-			'name' : 'six',
+			'name' : 'redfive',
+			'value' : 5,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 25.966% 91.628%"
+		},
+		{
+			'name' : 'blacksix',
 			'value' : 6,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 34.157% 3.241%"
 		},
 		{
-			'name' : 'seven',
+			'name' : 'redsix',
+			'value' : 6,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 34.157% 91.628%"
+		},
+		{
+			'name' : 'blackseven',
 			'value' : 7,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 42.369% 3.241%"
 		},
 		{
-			'name' : 'eight',
+			'name' : 'redseven',
+			'value' : 7,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 42.369% 91.628%"
+		},
+		{
+			'name' : 'blackeight',
 			'value' : 8,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 50.602% 3.241%"
 		},
 		{
-			'name' : 'nine',
+			'name' : 'redeight',
+			'value' : 8,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 50.602% 91.628%"
+		},
+		{
+			'name' : 'blacknine',
 			'value' : 9,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 58.771% 3.241%"
 		},
 		{
-			'name' : 'ten',
+			'name' : 'rednine',
+			'value' : 9,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 58.771% 91.628%"
+		},
+		{
+			'name' : 'blackten',
 			'value' : 10,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 66.984% 3.241%"
 		},
 		{
-			'name' : 'jack',
+			'name' : 'redten',
 			'value' : 10,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 66.984% 91.628%"
 		},
 		{
-			'name' : 'queen',
+			'name' : 'blackjack',
 			'value' : 10,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 75.222% 3.241%"
 		},
 		{
-			'name' : 'king',
+			'name' : 'redjack',
 			'value' : 10,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 75.222% 91.628%"
 		},
 		{
-			'name' : 'ace',
+			'name' : 'blackqueen',
+			'value' : 10,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 83.407% 3.241%"
+		},
+		{
+			'name' : 'redqueen',
+			'value' : 10,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 83.407% 91.628%"
+		},
+		{
+			'name' : 'blackking',
+			'value' : 10,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 91.635% 3.241%"
+		},
+		{
+			'name' : 'redking',
+			'value' : 10,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 91.635% 91.628%"
+		},
+		{
+			'name' : 'blackace',
 			'value' : 11,
-			'quantity' : 4
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 99.81% 3.241%"
+		},
+		{
+			'name' : 'redace',
+			'value' : 11,
+			'quantity' : 2,
+			'url' : "url('../images/Cards.png') no-repeat 99.81% 91.628%"
 		}
 	];
 
@@ -88,21 +179,21 @@ function CardDeck() {
 		if (luck >= 3) {
 			var lucky = Math.floor(Math.random() * luck);
 			if (lucky < 2) {
-				num = Math.floor(Math.random() * 13);
+				num = Math.floor(Math.random() * 26);
 			} else {
-				num = Math.floor(Math.random() * 7);
-				num += 6;
+				num = Math.floor(Math.random() * 14);
+				num += 12;
 			}
 		} else if (luck == 1) {
 			var unlucky = Math.floor(Math.random() * 3);
 			if (unlucky < 2) {
-				num = Math.floor(Math.random() * 13);
+				num = Math.floor(Math.random() * 26);
 			} else {
-				num = 6;
-				num -= Math.floor(Math.random() * 7);
+				num = 11;
+				num -= Math.floor(Math.random() * 12);
 			}
 		} else {
-			num = Math.floor(Math.random() * 13);
+			num = Math.floor(Math.random() * 26);
 		}
 		return num;
 	};
