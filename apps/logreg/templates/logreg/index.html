@@ -10,11 +10,16 @@
 	<link rel="stylesheet" href="{% static 'logreg/css/css_boilerplate.css' %}" media="screen">
 	<style media="screen">
 		#title{
-			margin-top: 12%;
+			margin-top: 6%;
 			font-family: "Courier New", Courier, monospace;
 			font-size: 500%;
-			color: darkred;
-			text-shadow: 2px 2px #ff0000;
+			color: yellow;
+			text-shadow: 4px 4px #f00000;
+		}
+		.minititle{
+			font-family: "Courier New", Courier, monospace;
+			color: rgb(200, 76, 6);
+			text-shadow: 1px 1px #f00000;
 		}
 		section {
 			display: inline-block;
@@ -51,7 +56,7 @@
 	<h1 id="title">Trail of Turkeys</h1>
 	<main class="eighty">
 		<section class="fifty">
-			<h1>Register</h1>
+			<h1 class="minititle">Register</h1>
 			{% if messages %}
 				<div class="notif">
 					{% for message in messages %}
@@ -80,7 +85,7 @@
 			</form>
 		</section>
 		<section class="right">
-			<h1>Login</h1>
+			<h1 class="minititle">Login</h1>
 			{% if messages %}
 				<div class="notif">
 					{% for message in messages %}

@@ -23,6 +23,11 @@ form {
 	margin: 10px auto;
 	padding: 20px;
 }
+label{
+	font-family: "Courier New", Courier, monospace;
+	color: rgb(200, 76, 6);
+	text-shadow: 1px 1px #f00000;
+}
 
 label, input {
 	display: inline-block;
@@ -106,8 +111,8 @@ input {
 }
 
 .btn-pop {
-	background: linear-gradient(lightgray, blue 30%);
-	color: white;
+	background: linear-gradient(lightgray, red 30%);
+	color: yellow;
 	padding: 3px;
 	text-align: center;
 }

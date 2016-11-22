@@ -4,28 +4,36 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
-body{
-	/*background-image: url('../images/Cornucopia.jpg');*/
+body {
+	background-image: url('../images/Leaves.jpg');
+	background-size: cover;
 }
 
 main {
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px gray;
-	margin: 50px auto;
+	margin: 30px auto 0;
 	background: url('../images/Table.png') no-repeat 0 0;
 	background-size: cover;
 	height: 600px;
 	width: 691px;
 }
 
+header > a.btn:first-child {
+	margin-right: 40px;
+	margin-left: 10px;
+}
+
 form {
 	margin: 10px auto;
-	padding: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: right;
 }
 
 label, input {
 	display: inline-block;
-	vertical-align: bottom;;
+	vertical-align: middle;
 	margin: 5px 0;
 }
 
@@ -74,7 +82,7 @@ input {
 }
 
 .btn {
-	display: block;
+	display: inline-block;
 	margin: 10px 0;
 	width: 5.5em;
 	height: 1.5em;
@@ -90,19 +98,23 @@ input {
 	padding: 3px;
 	text-align: center;
 }
-
 .btn-imp {
 	background: linear-gradient(white, red 20%);
-	color: white;
-	padding: 5px;
+	color: yellow;
+	padding: 3px;
 	text-align: center;
 }
 
 .btn-pop {
 	background: linear-gradient(white, blue 20%);
-	padding: 5px;
+	padding: 3px;
 	color: white;
 	text-align: center;
+}
+
+.btn:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px 5px black;
 }
 
 .red {
@@ -122,6 +134,7 @@ input {
 .left {
 	float: left;
 }
+
 .center {
 	margin: 0 auto;
 }
@@ -129,21 +142,72 @@ input {
 .notif {
 	padding: 5px;
 }
-#yourHand {
-    overflow:hidden;
-    position:relative;
-    border:1px solid #056B42;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    color:#69D1A7;
-    padding:.5em;
-    font-size:1.1em;
+
+.hidden{
+	display: none;
 }
+
+#moves {
+	text-align: center;
+	vertical-align:middle;
+}
+
+#yourHand, #dealerHand {
+	height: 200px;
+	text-align: center;
+}
+
+#yourHand {
+	padding: 10% 0 0;
+}
+
+#dealerHand {
+	margin-top: 10px;
+	padding: 10% 0 0;
+}
+
+#message {
+	text-align: center;
+	height: 100px;
+	padding: 30px;
+	font-size: 3em;
+}
+
 #yourScore {
 	text-align: center;
 }
+
+#buttons {
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px 0 0;
+}
+
+#bet {
+	font-weight: bold;
+	padding: 0;
+	font-size: 1em;
+	text-align: center;
+	color: red;
+}
+
+#money {
+	margin: 0 0 5px;
+}
+
+#stay {
+	margin-left: 10px;
+}
+
+.theme{
+	font-family: "Courier New", Courier, monospace;
+	color: yellow;
+	text-shadow: 1px 1px #f00000;
+}
+
 .card {
-	width: 125px;
-	height: 184px;
+	width: 63px;
+	height: 93px;
+	display: inline-block;
+	margin-left: 15px;
 }

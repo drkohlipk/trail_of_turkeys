@@ -1,4 +1,6 @@
 from django.db import models
+import json, collections
+from jsonfield import JSONField
 from ..logreg.models import User
 
 class CharDBManager(models.Manager):
@@ -58,7 +60,22 @@ class CharDBManager(models.Manager):
 		}
 		character = chardict.name
 
+	def populateDB(self, character):
+		self.create(name = character.name, luck = character.luck, money = character.money, beer_stamina = character.beer_stamina, damage = character.damage, special = character.special, sobriety = character.sobriety, health = character.health, tryptophan = character.tryptophan, family = json.dumps(character.family))
+		return self
+
 class CharDB(models.Model):
 	name = models.CharField(max_length = 10)
-	
+	person = models.ForeignKey(User, on_delete = models.CASCADE)
+	created_at = models.DateTimeField(auto_now_add = True)
+	updated_at = models.DateTimeField(auto_now = True)
+	luck = models.IntegerField()
+	money = models.IntegerField()
+	beer_stamina = models.IntegerField()
+	damage = models.IntegerField()
+	special= models.CharField(max_length = 15)
+	sobriety = models.IntegerField()
+	health = models.IntegerField()
+	tryptophan = models.IntegerField()
+	family = JSONField(load_kwargs={'object_pairs_hook': collections.OrderedDict})
 	objects = CharDBManager()

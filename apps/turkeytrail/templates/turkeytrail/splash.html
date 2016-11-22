@@ -56,13 +56,14 @@
   </div>
   <h1>Welcome to the Thanksgiving trail of Turkeys!</h1><h3> You and your family need to make a journey from your home, over the river, through the woods and to Grandmother’s house to enjoy a splendiferous Thanksgiving Day feast and become victorious in Grandma’s Annual Flip Cup Contest. Along the way, you will encounter Thanksgiving related trials and tribulations that will transform you into the Thanksgiving Day warrior you know you could be. Prepare yourself for the festivities.</h3>
     <h4>Choose your Character</h4>
-    <form action="{% url 'players'%}" method="POST">
+    <form action="{% url 'turkeytrail:roll'%}" method="POST">
       {% csrf_token %}
-      <p><strong>Character: </strong><select name="players">
-      {% for  %}
-      <option value="{{player.name}}"></option>
+      <label for="players">Character: </label>
+	  <select name="players">
+      {% for character in characters %}
+      <option value="{{character}}">{{character}}</option>
       {% endfor %}
-    </select></p>
+    	</select>
       <p><input type="submit" value="Let's Eat!"></p>
     </form>
         <a href="{% url 'logreg:index' %}"><strong>Log out</strong></a>
