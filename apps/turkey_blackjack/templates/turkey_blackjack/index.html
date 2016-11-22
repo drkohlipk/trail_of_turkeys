@@ -23,9 +23,7 @@
       <label for="bet">Your Bet:</label>
       <input type="number" name="bet" min="1" max="{{ request.session.user.money }}" value="5">
     </form>
-    <div id="hand">
-
-    </div>
+    <div id="hand"></div>
     <div class="center ninety">
       <button class="btn btn-pop" id="deal">Deal</button>
       <button class="btn btn-imp" id="hit">Hit</button>

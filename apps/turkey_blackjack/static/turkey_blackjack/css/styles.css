@@ -146,4 +146,6 @@ input {
 .card {
 	width: 125px;
 	height: 184px;
+	display: inline-block;
+	margin-left: 15px;
 }
