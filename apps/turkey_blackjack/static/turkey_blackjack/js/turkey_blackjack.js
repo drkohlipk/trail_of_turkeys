@@ -9,8 +9,9 @@ var luck = 3,
 	messbox = document.getElementById('message'),
 	your_hand = document.getElementById('player_hand'),
 	dealer_hand = document.getElementById('dealer_hand'),
-	mon = doument.getElementById('mon'),
-	send_value = document.getElementById('send_value');
+	mon = document.getElementById('mon'),
+	send_value = document.getElementById('send_value'),
+	hand = document.getElementById('hand');
 
 /*****************start constructor functions*********************/
 
@@ -20,157 +21,157 @@ function CardDeck() {
 			'name' : 'blacktwo',
 			'value' : 2,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 1.393% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 1.393% 3.241%"
 		},
 		{
 			'name' : 'redtwo',
 			'value' : 2,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 1.393% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 1.393% 91.628%"
 		},
 		{
 			'name' : 'blackthree',
 			'value' : 3,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 9.563% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 9.563% 3.241%"
 		},
 		{
 			'name' : 'redthree',
 			'value' : 3,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 9.563% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 9.563% 91.628%"
 		},
 		{
 			'name' : 'blackfour',
 			'value' : 4,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 17.744% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 17.744% 3.241%"
 		},
 		{
 			'name' : 'redfour',
 			'value' : 4,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 17.744% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 17.744% 91.628%"
 		},
 		{
 			'name' : 'blackfive',
 			'value' : 5,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 25.966% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 25.966% 3.241%"
 		},
 		{
 			'name' : 'redfive',
 			'value' : 5,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 25.966% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 25.966% 91.628%"
 		},
 		{
 			'name' : 'blacksix',
 			'value' : 6,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 34.157% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 34.157% 3.241%"
 		},
 		{
 			'name' : 'redsix',
 			'value' : 6,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 34.157% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 34.157% 91.628%"
 		},
 		{
 			'name' : 'blackseven',
 			'value' : 7,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 42.369% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 42.369% 3.241%"
 		},
 		{
 			'name' : 'redseven',
 			'value' : 7,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 42.369% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 42.369% 91.628%"
 		},
 		{
 			'name' : 'blackeight',
 			'value' : 8,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 50.602% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 50.602% 3.241%"
 		},
 		{
 			'name' : 'redeight',
 			'value' : 8,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 50.602% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 50.602% 91.628%"
 		},
 		{
 			'name' : 'blacknine',
 			'value' : 9,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 58.771% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 58.771% 3.241%"
 		},
 		{
 			'name' : 'rednine',
 			'value' : 9,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 58.771% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 58.771% 91.628%"
 		},
 		{
 			'name' : 'blackten',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 66.984% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 66.984% 3.241%"
 		},
 		{
 			'name' : 'redten',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 66.984% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 66.984% 91.628%"
 		},
 		{
 			'name' : 'blackjack',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 75.222% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 75.222% 3.241%"
 		},
 		{
 			'name' : 'redjack',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 75.222% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 75.222% 91.628%"
 		},
 		{
 			'name' : 'blackqueen',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 83.407% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 83.407% 3.241%"
 		},
 		{
 			'name' : 'redqueen',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 83.407% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 83.407% 91.628%"
 		},
 		{
 			'name' : 'blackking',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 91.635% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 91.635% 3.241%"
 		},
 		{
 			'name' : 'redking',
 			'value' : 10,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 91.635% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 91.635% 91.628%"
 		},
 		{
 			'name' : 'blackace',
 			'value' : 11,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 99.81% 3.241%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 99.81% 3.241%"
 		},
 		{
 			'name' : 'redace',
 			'value' : 11,
 			'quantity' : 2,
-			'url' : "url('../images/Cards.png') no-repeat 99.81% 91.628%"
+			'url' : "url(../../static/turkey_blackjack/images/Cards.png) no-repeat 99.81% 91.628%"
 		}
 	];
 
@@ -200,7 +201,7 @@ function CardDeck() {
 
 	this.deal = function(luck) {
 		var num = this.rando(luck),
-        	card = {'face':this.cards[num].name, 'value': this.cards[num].value};
+        	card = {'face' : this.cards[num].name, 'value' : this.cards[num].value, 'url' : this.cards[num].url};
         this.cards[num].quantity -= 1;
         return card;
 	};
@@ -213,6 +214,7 @@ function CardDeck() {
 		} else {
 			card.face = this.cards[num].name;
 			card.value = this.cards[num].value;
+			card.url = this.cards[num].url;
 			this.cards[num].quantity -= 1;
 		}
 		return card;
@@ -290,8 +292,7 @@ function startgame() {
 }
 
 function deal() {
-	var playHand = [],
-			dealHand = [];
+	var handcard = '';
     for (var i = 0; i < 4; i++) {
         if (i % 2 === 0) {
 			player.hand.push(deck.deal(player.luck));
@@ -299,39 +300,38 @@ function deal() {
 			dealer.hand.push(deck.deal(dealer.luck));
 		}
 	}
+	for (var j = 0; j < 2; j++) {
+		handcard += '<div style="background:'+player.hand[j].url+'" class="card"></div>';
+	}
+	hand.innerHTML = handcard;
 	dealer.check();
 	player.check();
 	if (dealer.blackjack || player.blackjack) {
-		console.log(end());
+		end();
 	}
-	for (var j = 0; j < 2; j++){
-		playHand.push(player.hand[j].face);
-		dealHand.push(dealer.hand[j].face);
-	}
-		your_hand.innerHTML = playHand;
-		dealer_hand.innerHTML = dealHand;
-		return;
+	return;
 }
 dealbtn.onclick = function(){deal();};
 
 function hit() {
-	var playHand = [];
+	var handcard = '';
 	player.hit();
+	for (var j = 0; j < player.hand.length; j++) {
+		handcard += '<div style="background:'+player.hand[j].url+'" class="card"></div>';
+		console.log(handcard);
+	}
+	hand.innerHTML = handcard;
 	player.check();
 	if (player.bust) {
-		console.log(end());
+		end();
 	}
-	for (var j = 0; j < player.hand.length; j++){
-		playHand.push(player.hand[j].face);
-	}
-	your_hand.innerHTML = playHand;
 	return;
 }
 hitbtn.onclick = function(){hit();};
 
 function stay() {
 	var soft = false;
-	var dealHand = [];
+	var dealHand = '';
 	if (dealer.sum == 17) {
 		soft = dealer.softCheck();
 	}
@@ -341,10 +341,10 @@ function stay() {
 		stay();
 	} else {
 		for (var j = 0; j < dealer.hand.length; j++){
-			dealHand.push(dealer.hand[j].face);
+			dealHand += '<div style="background:'+dealer.hand[j].url+'" class="card"></div>';
 		}
 		dealer_hand.innerHTML = dealHand;
-		console.log(end());
+		end();
 	}
 }
 staybtn.onclick = function(){stay();};

@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
+<html>
+  <head>
+    <title>Turkeys about TK all over you</title>
+  <style type="text/CSS">
+  #background {
+    background-image: url("https://motorcyclephotooftheday.files.wordpress.com/2011/11/drunk-turkey.jpg");
+    opacity: .5;
+    width: 875px;
+    height: 875px;
+    position: absolute;
+    z-index: -1;
+  }
+  h3{
+    z-index:1;
+  }
+  body{
+    text-align: center;
+  }
 
+
+  </style>
+  <script type="text/javascript">
+  </script>
+  </head>
+<body>
+  <div id="background">
+  </div>
+  <h1>Welcome to the Thanksgiving trail of Turkeys!</h1><h3> You and your family need to make a journey from your home, over the river, through the woods and to Grandmother’s house to enjoy a splendiferous Thanksgiving Day feast and become victorious in Grandma’s Annual Flip Cup Contest. Along the way, you will encounter Thanksgiving related trials and tribulations that will transform you into the Thanksgiving Day warrior you know you could be. Prepare yourself for the festivities.</h3>
+    <h4>Choose your Character</h4>
+    <form action="{% url 'players'%}" method="POST">
+      {% csrf_token %}
+      <p>Character: <select name="players">
+      {% for  %}
+      <option value="{{player.name}}"></option>
+      {% endfor %}
+    </select></p>
+      <p><input type="submit" value="Let's Eat!"></p>
+    </form>
+        <a href="{% url 'logreg:index' %}">Log out</a>
 </body>
 </html>
