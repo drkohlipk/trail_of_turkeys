@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'apps.logreg',
     'apps.turkeytrail',
+    'apps.turkey_blackjack',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
