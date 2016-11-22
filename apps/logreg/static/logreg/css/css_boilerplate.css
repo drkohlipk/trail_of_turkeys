@@ -5,11 +5,18 @@
 	font-family: sans-serif;
 }
 
+body{
+	background-image: url('../images/Autumn_LoginReg.jpg');
+	background-size: cover;
+}
+
 main {
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px gray;
-	margin: 50px auto;
+	margin: 6% auto;
 	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.7);
+	border-radius: 20px;
 }
 
 form {
