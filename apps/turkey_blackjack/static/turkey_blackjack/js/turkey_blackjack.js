@@ -10,7 +10,8 @@ var luck = 3,
 	your_hand = document.getElementById('player_hand'),
 	dealer_hand = document.getElementById('dealer_hand'),
 	mon = doument.getElementById('mon'),
-	send_value = document.getElementById('send_value');
+	send_value = document.getElementById('send_value'),
+	hand = document.getElementById('hand');
 
 /*****************start constructor functions*********************/
 
@@ -291,7 +292,7 @@ function startgame() {
 
 function deal() {
 	var playHand = [],
-			dealHand = [];
+		dealHand = [];
     for (var i = 0; i < 4; i++) {
         if (i % 2 === 0) {
 			player.hand.push(deck.deal(player.luck));
@@ -299,18 +300,18 @@ function deal() {
 			dealer.hand.push(deck.deal(dealer.luck));
 		}
 	}
+	for (var j = 0; j < 2; j++) {
+		var handcard = '<div class="card"></div>';
+		handcard.style.backgroundImage = player.hand[j].url;
+		hand.appendChild(handcard);
+		playHand.push(player.hand[j].face);
+	}
 	dealer.check();
 	player.check();
 	if (dealer.blackjack || player.blackjack) {
-		console.log(end());
+		end();
 	}
-	for (var j = 0; j < 2; j++){
-		playHand.push(player.hand[j].face);
-		dealHand.push(dealer.hand[j].face);
-	}
-		your_hand.innerHTML = playHand;
-		dealer_hand.innerHTML = dealHand;
-		return;
+	return;
 }
 dealbtn.onclick = function(){deal();};
 
