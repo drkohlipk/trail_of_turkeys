@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{% static 'turkey_blackjack/css/styles.css' %}" media="screen">
   <style media="screen">
     #title{
-      margin-top: 3%;
+      margin-top: 1%;
       font-family: "Courier New", Courier, monospace;
       font-size: 500%;
       color: yellow;
@@ -19,33 +19,32 @@
   </style>
 </head>
 <body>
-  <h1 id="title">Turkey Blackjack</h1>
+  <header class="hundo">
+    <a class="btn btn-imp right" href="{% url 'logreg:logout' %}">Logout</a>
+    <a class="btn btn-imp right" href="{% url 'turkeytrail:index' %}">Home</a>
+    <h1 id="title" class="seventy center">Turkey Blackjack</h1>
+  </header>
   <main>
     <div id="dealerHand"></div>
+    <p id="message" class="theme"></p>
     <div id="yourHand" class="center"></div>
     <!-- <div id="yourScore">Your Score: <span class="digits">0</span> Record: <span id="wins">0</span>&nbsp;/&nbsp;<span id="losses">0</span></div> -->
-    <p id="message"></p>
-    <div id="hand">
-
-    </div>
     <div id="moves" class="ninety center">
-      <button class="btn btn-pop left" id="deal">Deal</button>
-      <button class="btn btn-imp hidden left" id="hit">Hit</button>
-      <button class="btn btn-dflt hidden left" id="stay">Stay</button>
-      <form id="send_value" class="thirty right" action="{% url 'turkey_blackjack:deal' %}" method="post">
+      <div id="buttons" class="sixty left">
+        <button class="btn btn-pop left" id="deal">Deal</button>
+        <button class="btn btn-imp hidden left" id="hit">Hit</button>
+        <button class="btn btn-dflt hidden left" id="stay">Stay</button>
+      </div><!-- end_of_buttons-->
+      {% load blackjacktags %}
+      <form id="send_value" class="thirty right" action="{% get_money user_id %}" method="post">
         {% csrf_token %}
-        <input type="hidden" id="mon" name="money" value="{{ request.session.user.money }}">
-        <span id="money" class="theme" >Your Money: </span>
+        <input type="hidden" id="mon" name="money" value="">
+        <span id="money" class="theme left" >Your Money: <span id="monies" class="theme">{{ request.session.user.money }}</span></span>
         <label class="fifty theme" for="bet">Your Bet:</label>
-        <input class="forty" type="number" name="bet" min="1" max="{{ request.session.user.money }}" value="5">
+        <input id="bet" class="forty" type="number" name="bet" min="1" max="{{ request.session.user.money }}" value="5">
       </form>
-
     </div>
   </main>
-  <footer>
-    <a class="btn btn-imp" href="">Logout</a>
-    <a class="btn btn-imp" href="">Home</a>
-  </footer>
   <script src="{% static 'turkey_blackjack/js/turkey_blackjack.js' %}" type="text/javascript"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 	font-family: sans-serif;
 }
-body{
+body {
 	background-image: url('../images/Leaves.jpg');
 	background-size: cover;
 }
@@ -12,11 +12,16 @@ body{
 main {
 	border: 1px solid gray;
 	box-shadow: 1px 1px 5px gray;
-	margin: 50px auto 0;
+	margin: 30px auto 0;
 	background: url('../images/Table.png') no-repeat 0 0;
 	background-size: cover;
 	height: 600px;
 	width: 691px;
+}
+
+header > a.btn:first-child {
+	margin-right: 40px;
+	margin-left: 10px;
 }
 
 form {
@@ -78,7 +83,7 @@ input {
 
 .btn {
 	display: inline-block;
-	margin: 20px 5px 0 5px;
+	margin: 10px 0;
 	width: 5.5em;
 	height: 1.5em;
 	font-size: .9em;
@@ -93,9 +98,6 @@ input {
 	padding: 3px;
 	text-align: center;
 }
-.hidden{
-	display: none;
-}
 .btn-imp {
 	background: linear-gradient(white, red 20%);
 	color: yellow;
@@ -105,9 +107,14 @@ input {
 
 .btn-pop {
 	background: linear-gradient(white, blue 20%);
-	padding: 5px;
+	padding: 3px;
 	color: white;
 	text-align: center;
+}
+
+.btn:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px 5px black;
 }
 
 .red {
@@ -129,34 +136,75 @@ input {
 }
 
 .center {
-	margin: 20px auto;
+	margin: 0 auto;
 }
 
 .notif {
 	padding: 5px;
 }
-footer{
-	width:100%;
-	text-align: center;
+
+.hidden{
+	display: none;
 }
 
-#moves{
-	position: relative;
+#moves {
 	text-align: center;
 	vertical-align:middle;
-	top: 78%;
 }
-#yourHand {
 
+#yourHand, #dealerHand {
+	height: 200px;
+	text-align: center;
 }
+
+#yourHand {
+	padding: 10% 0 0;
+}
+
+#dealerHand {
+	margin-top: 10px;
+	padding: 10% 0 0;
+}
+
+#message {
+	text-align: center;
+	height: 100px;
+	padding: 30px;
+	font-size: 3em;
+}
+
 #yourScore {
 	text-align: center;
 }
+
+#buttons {
+	display: inline-block;
+	vertical-align: top;
+	padding: 20px 0 0;
+}
+
+#bet {
+	font-weight: bold;
+	padding: 0;
+	font-size: 1em;
+	text-align: center;
+	color: red;
+}
+
+#money {
+	margin: 0 0 5px;
+}
+
+#stay {
+	margin-left: 10px;
+}
+
 .theme{
 	font-family: "Courier New", Courier, monospace;
 	color: yellow;
 	text-shadow: 1px 1px #f00000;
 }
+
 .card {
 	width: 63px;
 	height: 93px;

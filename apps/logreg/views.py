@@ -11,11 +11,13 @@ def process(request, typelogin): #route to process the entered information if a 
 	request.session['loggedin'] = result['loggedin'] #store whether or not the user is logged in in session
 
 	if result['loggedin']: #if the user is logged in based on the entered information...
-		request.session['user'] = result['new_user'] #store the user's information in session
-		return redirect(reverse('turkeytrail:splash')) #redirect the user to the success route
+		request.session['user'] = result['user'] #store the user's information in session
+		return redirect(reverse('turkeytrail:index')) #redirect the user to the success route
 	else: #if the user is not logged in based on the entered information...
-		for error in result['errors']: #for every error...
+		for error in result['errors']['reg']: #for every error...
 			messages.error(request, error) #make a flash message
+		for warning in result['errors']['login']:
+			messages.warning(request, warning)
 		return redirect(reverse('logreg:index')) #redirect back to root
 
 def logout(request):
