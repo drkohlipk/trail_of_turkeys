@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
+from django.core.urlresolvers import reverse
 
 def index(request):
-	if request.session['loggedin'] == False:
+	if not request.session['loggedin']:
 		return redirect(reverse('logreg:index'))
+
 	context = {
-		'characters' : ['josiah', 'isabelle', 'benjamin', 'emily', 'samuel', 'sarah'],
-		'names' : ['Josiah', 'Isabelle', 'Benjamin', 'Emily', 'Samuel', 'Sarah']
+		'characters' : ['Josiah', 'Isabelle', 'Benjamin', 'Emily', 'Samuel', 'Sarah']
 	}
 	return render(request, 'turkeytrail/splash.html', context)
 

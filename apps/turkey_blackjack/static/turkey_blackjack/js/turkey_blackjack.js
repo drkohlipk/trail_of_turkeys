@@ -1,11 +1,16 @@
 // var luck = document.getElementById('luck').innerHTML(),
 // 	money = document.getElementById('money').innerHTML();
-var luck = 3,
-	money = 20,
+var luck = 1,
 	dealbtn = document.getElementById('deal'),
 	hitbtn = document.getElementById('hit'),
 	staybtn = document.getElementById('stay'),
+	splitbtnyes = document.getElementById('splity'),
+	splitbtnno = document.getElementById('splitn'),
+	dblbtn = document.getElementById('dbl'),
+	resetbtn = document.getElementById('reset'),
+	btnmsg = document.getElementById('btnmsg'),
 	monies = document.getElementById('monies'),
+	money = parseInt(monies.innerHTML),
 	messbox = document.getElementById('message'),
 	dealerHand = document.getElementById('dealerHand'),
 	mon = document.getElementById('mon'),
@@ -13,6 +18,7 @@ var luck = 3,
 	yourHand = document.getElementById('yourHand'),
 	bet = document.getElementById('bet');
 
+console.log(money);
 /*****************start constructor functions*********************/
 
 function CardDeck() {
@@ -198,14 +204,14 @@ function CardDeck() {
 	};
 }
 
-function Player(money, luck, bet) {
+function Player(money, luck) {
 	this.money = money;
 	this.luck = luck;
 	this.hand = [];
 	this.bust = false;
 	this.sum = 0;
 	this.blackjack = false;
-	this.bet = bet;
+	this.bet = 0;
 
 	this.check = function() {
 		this.sum = 0;
@@ -222,6 +228,7 @@ function Player(money, luck, bet) {
 			this.blackjack = true;
 		} else {
 			this.bust = false;
+			this.blackjack = false;
 		}
 		return this;
 	};
@@ -261,15 +268,40 @@ var deck,
 	player,
 	dealer;
 
-function startgame() {
+function shuffle() {
 	deck = new CardDeck();
-	player = new Player(money, luck, parseInt(bet.value));
+}
+
+function startgame() {
+	if (money === 0) {
+		money = 20;
+	}
+	player = new Player(money, luck);
 	dealer = new Player(0, 2);
+	yourHand.innerHTML = '';
+	dealerHand.innerHTML = '';
+	messbox.innerHTML = '';
+	monies.innerHTML = player.money;
+	resetbtn.classList.add('hidden');
+	bet.value = 5;
 	return;
 }
 
 function deal() {
-	startgame();
+	shuffle();
+	if (parseInt(bet.value) > player.money) {
+		alert("You don't have enough money to bet that much...nice try...");
+		bet.focus();
+		return;
+	} else if (parseInt(bet.value) <= 0) {
+		alert("Please enter a valid bet amount.");
+		bet.focus();
+		return;
+	}
+	if ((parseInt(bet.value) * 2) <= player.money) {
+		dblbtn.classList.remove('hidden');
+	}
+	resetbtn.classList.add('hidden');
 	yourHand.innerHTML = '';
 	dealerHand.innerHTML = '';
 	messbox.innerHTML = '';
@@ -278,7 +310,10 @@ function deal() {
 	staybtn.classList.remove('hidden');
 	bet.disabled = true;
 	bet.style.color = 'gray';
+	player.bet = parseInt(bet.value);
+	monies.innerHTML = player.money - player.bet;
 	var handcard = '';
+	var dealcard = '';
 	for (var i = 0; i < 4; i++) {
 		if (i % 2 === 0) {
 			player.hand.push(deck.deal(player.luck));
@@ -291,16 +326,25 @@ function deal() {
 			'" class="card"></div>';
 	}
 	yourHand.innerHTML = handcard;
+	dealcard += '<div style="background:' + dealer.hand[1].url +
+		'" class="card"></div>';
+	dealerHand.innerHTML = dealcard;
 	dealer.check();
 	player.check();
 	if (dealer.blackjack || player.blackjack) {
 		end();
+		return;
 	}
+	// if (player.hand[0].value == player.hand[1].value) {
+	// 	btnmsg.innerHTML = "Would you like to split?";
+	// 	dealbtn.classList.add('hidden');
+	// 	hitbtn.classList.add('hidden');
+	// 	staybtn.classList.add('hidden');
+	// 	splitbtnyes.classList.remove('hidden');
+	// 	splitbtnno.classList.remove('hidden');
+	// }
 	return;
 }
-dealbtn.onclick = function() {
-	deal();
-};
 
 function hit() {
 	var handcard = '';
@@ -310,16 +354,25 @@ function hit() {
 			'" class="card"></div>';
 		console.log(handcard);
 	}
+	dblbtn.classList.add('hidden');
 	yourHand.innerHTML = handcard;
 	player.check();
 	if (player.bust) {
 		end();
+		return;
 	}
 	return;
 }
-hitbtn.onclick = function() {
+
+// function split() {
+//
+// }
+
+function dbl() {
+	player.bet *= 2;
 	hit();
-};
+	stay();
+}
 
 function stay() {
 	var soft = false;
@@ -334,12 +387,9 @@ function stay() {
 		end();
 	}
 }
-staybtn.onclick = function() {
-	stay();
-};
 
 function end() {
-	var message;
+	var message = '';
 	var dealHand = '';
 	for (var j = 0; j < dealer.hand.length; j++) {
 		dealHand += '<div style="background:' + dealer.hand[j].url +
@@ -372,10 +422,44 @@ function end() {
 	messbox.innerHTML = message;
 	dealbtn.classList.remove('hidden');
 	hitbtn.classList.add('hidden');
+	dblbtn.classList.add('hidden');
 	staybtn.classList.add('hidden');
 	bet.disabled = false;
 	bet.style.color = 'red';
+	bet.setAttribute('max', player.money);
+	player.hand = [];
+	dealer.hand = [];
+	if (player.money === 0) {
+		message += "You are completely out of money, play again?";
+		resetbtn.classList.remove('hidden');
+	}
 	return message;
 }
 
 /*****************end game functions*********************/
+
+/****************start function calls********************/
+
+dealbtn.onclick = function() {
+	deal();
+};
+
+hitbtn.onclick = function() {
+	hit();
+};
+
+dblbtn.onclick = function() {
+	dbl();
+};
+
+staybtn.onclick = function() {
+	stay();
+};
+
+resetbtn.onclick = function() {
+	startgame();
+};
+
+startgame();
+
+/*****************end function calls*********************/

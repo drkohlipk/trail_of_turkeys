@@ -22,4 +22,5 @@ def process(request, typelogin): #route to process the entered information if a 
 
 def logout(request):
 	request.session['loggedin'] = False #log the user out
+	del request.session['user']
 	return redirect('logreg:index') #redirect to root

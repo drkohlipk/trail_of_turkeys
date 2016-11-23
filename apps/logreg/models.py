@@ -63,7 +63,7 @@ class UserManager(models.Manager):
 		return result #return the result dictionary
 
 	def creator(self, data): #creates the user in the database based on the appropriately entered registration information
-		new_user = self.create(first_name = data['first_name'], last_name = data['last_name'], username = data['username'], email = data['email'], password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()))
+		new_user = self.create(first_name = data['first_name'], last_name = data['last_name'], username = data['username'], email = data['email'], password = bcrypt.hashpw(data['password'].encode(), bcrypt.gensalt()), money = 20)
 		return new_user #return the newly created user's information
 
 class User(models.Model):
@@ -72,6 +72,7 @@ class User(models.Model):
 	username = models.CharField(max_length = 100)
 	email = models.EmailField(max_length = 254)
 	password = models.CharField(max_length = 255)
+	money = models.IntegerField()
 	created_at = models.DateTimeField(auto_now_add = True)
 	updated_at = models.DateTimeField(auto_now = True)
 	objects = UserManager()

@@ -19,11 +19,6 @@ main {
 	width: 691px;
 }
 
-header > a.btn:first-child {
-	margin-right: 40px;
-	margin-left: 10px;
-}
-
 form {
 	margin: 10px auto;
 	display: inline-block;
@@ -192,10 +187,30 @@ input {
 }
 
 #money {
-	margin: 0 0 5px;
+	margin: 0 0 5px 10px;
 }
 
-#stay {
+#stay, #reset, #dbl {
+	margin-left: 10px;
+}
+
+#dbl {
+	width: 7em;
+	background: linear-gradient(gray, gold);
+	color: white;
+}
+
+#home {
+	display: inline-block;
+	vertical-align: top;
+	margin: 0;
+	padding: 0;
+}
+
+#logout {
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 40px;
 	margin-left: 10px;
 }
 

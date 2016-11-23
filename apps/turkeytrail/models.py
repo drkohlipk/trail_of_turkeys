@@ -67,8 +67,6 @@ class CharDBManager(models.Manager):
 class CharDB(models.Model):
 	name = models.CharField(max_length = 10)
 	person = models.ForeignKey(User, on_delete = models.CASCADE)
-	created_at = models.DateTimeField(auto_now_add = True)
-	updated_at = models.DateTimeField(auto_now = True)
 	luck = models.IntegerField()
 	money = models.IntegerField()
 	beer_stamina = models.IntegerField()
@@ -78,4 +76,6 @@ class CharDB(models.Model):
 	health = models.IntegerField()
 	tryptophan = models.IntegerField()
 	family = JSONField(load_kwargs={'object_pairs_hook': collections.OrderedDict})
+	created_at = models.DateTimeField(auto_now_add = True)
+	updated_at = models.DateTimeField(auto_now = True)
 	objects = CharDBManager()
