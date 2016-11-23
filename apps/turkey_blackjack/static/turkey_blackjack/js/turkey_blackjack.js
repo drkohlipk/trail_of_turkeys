@@ -1,6 +1,6 @@
 // var luck = document.getElementById('luck').innerHTML(),
 // 	money = document.getElementById('money').innerHTML();
-var luck = 1,
+var luck = 2,
 	dealbtn = document.getElementById('deal'),
 	hitbtn = document.getElementById('hit'),
 	staybtn = document.getElementById('stay'),
@@ -18,7 +18,6 @@ var luck = 1,
 	yourHand = document.getElementById('yourHand'),
 	bet = document.getElementById('bet');
 
-console.log(money);
 /*****************start constructor functions*********************/
 
 function CardDeck() {
@@ -273,6 +272,7 @@ function shuffle() {
 }
 
 function startgame() {
+	console.log(money);
 	if (money === 0) {
 		money = 20;
 	}
@@ -312,6 +312,8 @@ function deal() {
 	bet.style.color = 'gray';
 	player.bet = parseInt(bet.value);
 	monies.innerHTML = player.money - player.bet;
+	player.blackjack = false;
+	dealer.blackjack = false;
 	var handcard = '';
 	var dealcard = '';
 	for (var i = 0; i < 4; i++) {
@@ -326,7 +328,9 @@ function deal() {
 			'" class="card"></div>';
 	}
 	yourHand.innerHTML = handcard;
-	dealcard += '<div style="background:' + dealer.hand[1].url +
+	dealcard =
+		'<div style="background: url(../../static/turkey_blackjack/images/cardback.png) no-repeat" class="card"></div><div style="background:' +
+		dealer.hand[1].url +
 		'" class="card"></div>';
 	dealerHand.innerHTML = dealcard;
 	dealer.check();
@@ -352,7 +356,6 @@ function hit() {
 	for (var j = 0; j < player.hand.length; j++) {
 		handcard += '<div style="background:' + player.hand[j].url +
 			'" class="card"></div>';
-		console.log(handcard);
 	}
 	dblbtn.classList.add('hidden');
 	yourHand.innerHTML = handcard;
@@ -427,6 +430,9 @@ function end() {
 	bet.disabled = false;
 	bet.style.color = 'red';
 	bet.setAttribute('max', player.money);
+	console.log(player.hand);
+	console.log('******************************************************');
+	console.log(dealer.hand);
 	player.hand = [];
 	dealer.hand = [];
 	if (player.money === 0) {

@@ -21,8 +21,8 @@
 <body>
   <header class="hundo">
     <a class="btn btn-imp right" id="logout" href="{% url 'logreg:logout' %}">Logout</a>
-    <form class="right" id="home" action="{% url 'turkey_blackjack:home' %}">
-      <input type="hidden" id="mon" name="money" value="">
+    <form class="right" id="home" action="{% url 'turkey_blackjack:home' %}" method="POST">
+      <input type="hidden" id="mon" name="money" value="{{money}}">
       {% csrf_token %}
       <input class="btn btn-imp" type="submit" value="Home">
     </form>
@@ -44,7 +44,7 @@
         <button class="btn btn-dflt hidden left" id="reset">Start Over</button>
       </div><!-- end_of_buttons-->
         <div id="betwrapper" class="thirty right">
-          <span id="money" class="left theme" >Your Money: <span id="monies" class="theme">{{ request.session.user.money }}</span></span>
+          <span id="money" class="left theme" >Your Money: <span id="monies" class="theme">{{ money }}</span></span>
           <label class="fifty theme" for="bet">Your Bet:</label>
           <input id="bet" class="forty" type="number" name="bet" min="1" max="20" value="5">
         </div><!-- end_of_betwrapper-->
