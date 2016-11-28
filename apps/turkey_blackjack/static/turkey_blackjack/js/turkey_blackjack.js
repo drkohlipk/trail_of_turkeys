@@ -174,6 +174,9 @@ function CardDeck() {
 		} else {
 			num = Math.floor(Math.random() * 26);
 		}
+		console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn');
+		console.log(num);
+		console.log('nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn');
 		return num;
 	};
 
@@ -192,7 +195,7 @@ function CardDeck() {
 		var card = {},
 			num = this.rando(luck);
 		if (this.cards[num].quantity === 0) {
-			this.hit();
+			this.hit(luck);
 		} else {
 			card.face = this.cards[num].name;
 			card.value = this.cards[num].value;
@@ -226,7 +229,6 @@ function Player(money, luck) {
 		} else if (this.sum == 21 && this.hand.length == 2) {
 			this.blackjack = true;
 		} else {
-			this.bust = false;
 			this.blackjack = false;
 		}
 		return this;
@@ -312,6 +314,8 @@ function deal() {
 	bet.style.color = 'gray';
 	player.bet = parseInt(bet.value);
 	monies.innerHTML = player.money - player.bet;
+	player.bust = false;
+	dealer.bust = false;
 	player.blackjack = false;
 	dealer.blackjack = false;
 	var handcard = '';
